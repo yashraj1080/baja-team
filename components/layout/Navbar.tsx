@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   const navItems = [
     "HOME",
@@ -12,12 +14,19 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full bg-gradient-to-b from-black/60 to-transparent">
       <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-8">
-        
+
         {/* Left Section */}
         <div className="flex items-center gap-5">
-          
-          {/* Logo Placeholder */}
-          <div className="h-14 w-14 rounded-full border border-white/20" />
+
+          {/* Logo */}
+          <Image
+            src="/logos/logo.png"
+            alt="Team Predators Logo"
+            width={150}
+            height={150}
+            className="object-contain"
+            priority
+          />
 
           {/* Team Name */}
           <div>
@@ -41,7 +50,7 @@ export default function Navbar() {
             >
               {item}
 
-              {/* Underline Hover */}
+              {/* Hover Underline */}
               <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-orange-500 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
