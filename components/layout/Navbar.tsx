@@ -1,60 +1,64 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const navItems = [
-    "HOME",
-    "ABOUT",
-    "TEAM",
-    "VEHICLE",
-    "ACHIEVEMENTS",
-    "SPONSORS",
-    "CONTACT",
+    { label: "HOME", href: "/" },
+    { label: "ABOUT", href: "/about" },
+    { label: "TEAM", href: "/team" },
+    { label: "VEHICLE", href: "/vehicle" },
+    { label: "ACHIEVEMENTS", href: "/achievements" },
+    { label: "SPONSORS", href: "/sponsors" },
+    { label: "GALLERY", href: "/gallery" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-gradient-to-b from-black/60 to-transparent">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-8">
+    <header className="fixed top-0 z-50 w-full bg-gradient-to-b from-black/70 to-transparent">
 
-        {/* Left Section */}
-        <div className="flex items-center gap-5">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+
+        {/* LEFT */}
+        <Link href="/" className="flex items-center gap-4">
 
           {/* Logo */}
           <Image
             src="/logos/logo.png"
             alt="Team Predators Logo"
-            width={150}
-            height={150}
+            width={65}
+            height={65}
             className="object-contain"
             priority
           />
 
           {/* Team Name */}
           <div>
-            <h1 className="text-2xl font-black uppercase tracking-[0.2em] text-white">
+            <h1 className="text-xl font-black uppercase tracking-[0.15em] text-white md:text-2xl">
               TEAM PREDATORS
             </h1>
 
-            <p className="mt-1 text-xs uppercase tracking-[0.4em] text-zinc-300">
+            <p className="mt-1 text-[10px] uppercase tracking-[0.35em] text-zinc-300 md:text-xs">
               BAJA SAE
             </p>
           </div>
-        </div>
+        </Link>
 
-        {/* Navigation */}
-        <nav className="hidden items-center gap-10 xl:flex">
+        {/* RIGHT NAVIGATION */}
+        <nav className="hidden items-center gap-6 xl:flex 2xl:gap-10">
           {navItems.map((item) => (
-            <a
-              key={item}
-              href="#"
-              className="group relative text-sm font-semibold uppercase tracking-[0.2em] text-white transition"
+            <Link
+              key={item.label}
+              href={item.href}
+              className="group relative text-xs font-semibold uppercase tracking-[0.18em] text-white transition md:text-sm"
             >
-              {item}
+              {item.label}
 
               {/* Hover Underline */}
               <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-orange-500 transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </nav>
+
       </div>
     </header>
   );
