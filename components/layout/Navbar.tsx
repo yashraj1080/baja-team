@@ -6,7 +6,6 @@ export default function Navbar() {
     { label: "HOME", href: "/" },
     { label: "ABOUT", href: "/about" },
     { label: "TEAM", href: "/team" },
-    { label: "VEHICLE", href: "/vehicle" },
     { label: "ACHIEVEMENTS", href: "/achievements" },
     { label: "SPONSORS", href: "/sponsors" },
     { label: "GALLERY", href: "/gallery" },
