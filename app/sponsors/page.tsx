@@ -1,107 +1,122 @@
-"use client";
+import Image from "next/image";
+import Navbar from "@/components/layout/Navbar";
 
 const sponsors = [
   {
-    name: "Red Bull",
-    logo: "/sponsors/redbull.png",
+    name: "Replus",
+    logo: "/images/sponsors/replus.jpg",
   },
   {
-    name: "Tesla",
-    logo: "/sponsors/tesla.png",
+    name: "Jendamark",
+    logo: "/images/sponsors/jendamark.jpg",
   },
   {
-    name: "NVIDIA",
-    logo: "/sponsors/nvidia.png",
+    name: "Neo Wheels",
+    logo: "/images/sponsors/neo-wheels.jpg",
   },
   {
-    name: "AWS",
-    logo: "/sponsors/aws.png",
+    name: "Pollux Logistics",
+    logo: "/images/sponsors/pollux-logistics.jpg",
   },
   {
-    name: "Microsoft",
-    logo: "/sponsors/microsoft.png",
+    name: "C2M",
+    logo: "/images/sponsors/c2m.jpg",
   },
   {
-    name: "Oracle",
-    logo: "/sponsors/oracle.png",
+    name: "Bharat Mechatronics",
+    logo: "/images/sponsors/bharat-mechatronics.jpg",
+  },
+  {
+    name: "Seven Hours",
+    logo: "/images/sponsors/seven-hours.jpg",
+  },
+  {
+    name: "Strataroh",
+    logo: "/images/sponsors/strataroh.jpg",
   },
 ];
 
 export default function SponsorsPage() {
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
-      
-      {/* HERO */}
-      <section className="relative flex flex-col items-center justify-center py-32 px-6 text-center">
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black opacity-80" />
+    <>
+      <Navbar />
 
-        <div className="relative z-10 max-w-4xl">
-          <p className="uppercase tracking-[0.4em] text-zinc-400 mb-4 text-sm">
-            Powering Innovation
-          </p>
+      <main className="min-h-screen bg-zinc-950 text-white">
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Our Sponsors
-          </h1>
+        {/* PAGE TITLE */}
+        <section className="border-b border-white/10 pt-32 pb-12">
 
-          <p className="mt-8 text-zinc-400 text-lg leading-relaxed">
-            The companies and partners who support Team Predators Racing in
-            building world-class engineering, innovation, and performance.
-          </p>
-        </div>
-      </section>
+          <div className="mx-auto max-w-7xl px-8">
 
-      {/* SPONSORS GRID */}
-      <section className="px-6 md:px-12 pb-32">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sponsors.map((sponsor, index) => (
-              <div
-                key={index}
-                className="group relative bg-zinc-900 border border-zinc-800 rounded-3xl p-10 flex flex-col items-center justify-center transition-all duration-500 hover:border-white hover:-translate-y-2"
-              >
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 bg-white/5 blur-2xl" />
+            <p className="mb-4 text-xs uppercase tracking-[0.5em] text-orange-500">
+              Team Predators Racing
+            </p>
 
-                {/* Logo */}
-                <div className="relative z-10 h-24 flex items-center justify-center">
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="max-h-20 object-contain grayscale group-hover:grayscale-0 transition duration-500"
-                  />
-                </div>
+            <h1 className="text-3xl font-bold uppercase md:text-5xl">
+              Sponsors & Partners
+            </h1>
 
-                {/* Name */}
-                <h3 className="relative z-10 mt-8 text-2xl font-semibold">
-                  {sponsor.name}
-                </h3>
-              </div>
-            ))}
           </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="border-t border-zinc-800 py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          
-          <h2 className="text-4xl md:text-5xl font-bold">
-            Become a Sponsor
-          </h2>
+        </section>
 
-          <p className="mt-6 text-zinc-400 text-lg leading-relaxed">
-            Partner with Team Predators Racing and help shape the future of
-            motorsports engineering and student innovation.
-          </p>
+        {/* SPONSORS GRID */}
+        <section className="py-24">
 
-          <button className="mt-10 px-8 py-4 bg-white text-black rounded-full font-semibold hover:scale-105 transition duration-300">
-            Contact Us
-          </button>
-        </div>
-      </section>
-    </main>
+          <div className="mx-auto max-w-7xl px-8">
+
+            <div className="mb-16">
+
+              <p className="mb-4 text-xs uppercase tracking-[0.5em] text-orange-500">
+                Technical Partners
+              </p>
+
+              <h2 className="text-2xl font-bold uppercase md:text-4xl">
+                Engineering Support
+              </h2>
+
+            </div>
+
+            <div className="grid gap-px bg-white/10 md:grid-cols-2 lg:grid-cols-4">
+
+              {sponsors.map((sponsor) => (
+                <div
+                  key={sponsor.name}
+                  className="bg-zinc-900/60 p-12 backdrop-blur-sm transition duration-300 hover:bg-zinc-800/80"
+                >
+
+                  {/* LOGO */}
+                  <div className="flex h-52 items-center justify-center">
+
+                    <Image
+                      src={sponsor.logo}
+                      alt={sponsor.name}
+                      width={320}
+                      height={160}
+                      className="max-h-32 w-auto object-contain opacity-90"
+                    />
+
+                  </div>
+
+                  {/* NAME */}
+                  <div className="mt-8 border-t border-white/10 pt-5">
+
+                    <p className="text-sm uppercase tracking-[0.3em] text-zinc-400">
+                      {sponsor.name}
+                    </p>
+
+                  </div>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+    </>
   );
 }
